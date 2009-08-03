@@ -1,2 +1,2 @@
-* Give line and column number for errors (pass the SourcePosition to the AST Nodes and ParserExceptions)
-* Implement scoping
+ * Give line and column number for errors (pass the SourcePosition to the AST Nodes and  ParserExceptions)
+ * Implement scoping
