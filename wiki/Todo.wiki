@@ -1,3 +1,3 @@
-# List of things to complete.
+#summary List of things to complete.
 
- * Lexical scoping - Done. See the lexical_scope branch and Scope page
+ * Lexical scoping - Done. See the lexical_scope branch and [Scope] page
