@@ -1,1 +1,3 @@
- * Lexical scoping. See the lexical_scope branch.
+# List of things to complete.
+
+ * Lexical scoping - Done. See the lexical_scope branch and Scope page
