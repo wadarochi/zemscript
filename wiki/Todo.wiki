@@ -1,1 +1,1 @@
- * Implement lexical scoping
+ * Lexical scoping. See the lexical_scope branch.
