@@ -9,8 +9,45 @@ For explanation of scoping see [http://en.wikipedia.org/wiki/Scope_%28programmin
 
 The implementation in trunk uses dynamic scoping. When a function is called it makes a copy of the symbol table and sets it as the current symbol table to use. Then when the function exits it restores it to the previous symbol table. Since functions can call other functions it results in a stack of symbol tables.
 
+{{{
+x = 0;
+f = function() {
+    return x;
+};
+g = function() {
+    x = 1;
+    return f();
+};
+println("x: " ~ x); // Prints x: 1
+}}}
+
 = Lexical Scoping =
 
 The implementation in lexical_scope branch uses lexical (static) scoping. When a function is defined the current symbol table is bound to it. Then when a function is called it copies the bounded symbol table and sets it as the symbol table. When the function exists is restores the previous symbol table.
 
+{{{
+x = 0;
+f = function() {
+    return x;
+};
+g = function() {
+    x = 1;
+    return f();
+};
+println("x: " ~ x); // Prints x: 0
+}}}
+
 The lexical_scope branch also implements the global keyword. This allows for using a global variable inside a function. It works by using the global symbol table for any variable that has been declared as global. Defining a variable at the top level as global results in it behaving the same as dynamic scoping.
+
+{{{
+global x;
+x = 0;
+f = function() {
+    return x;
+};
+g = function() {
+    x = 1;
+    return f();
+};
+println("x: " ~ x); // Prints x: 1
+}}}
