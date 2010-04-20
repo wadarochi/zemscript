@@ -51,3 +51,24 @@ g = function() {
 };
 println("x: " ~ x); // Prints x: 1
 }}}
+
+Note that function parameters mask top level global variables. For example:
+{{{
+global msg;
+msg = "Hello World!";
+greet = function(msg) {
+    return msg;
+};
+println(greet("Greetings!")); // Prints Greetings!
+}}}
+
+Also as part of the lexical scope implementation, lexical closures are supported. For example:
+{{{
+line = function(m, c) {
+    return function(x) {
+        return m * x + c;
+    };
+};
+y = line(5, 2);
+println(y(8)); // Prints 42
+}}}
