@@ -23,7 +23,7 @@ println("x: " ~ x); // Prints x: 1
 
 = Lexical Scoping =
 
-The implementation in lexical_scope branch uses lexical (static) scoping. When a function is defined the current symbol table is bound to it. Then when a function is called it copies the bounded symbol table and sets it as the current symbol table. When the function exits is restores the previous symbol table.
+The implementation in lexical_scope branch uses lexical (static) scoping. When a function is defined the current symbol table is bound to it. Then when a function is called it copies the bounded symbol table and sets it as the current symbol table. When the function exits it restores the previous symbol table.
 
 {{{
 x = 0;
