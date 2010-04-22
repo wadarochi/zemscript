@@ -18,6 +18,7 @@ g = function() {
     x = 1;
     return f();
 };
+g();
 println("x: " ~ x); // Prints x: 1
 }}}
 
@@ -34,11 +35,22 @@ g = function() {
     x = 1;
     return f();
 };
+g();
 println("x: " ~ x); // Prints x: 0
 }}}
 
-The lexical_scope branch also implements the global keyword. This allows for using a global variable inside a function. It works by using the global symbol table for any variable that has been declared as global in the current scope. Defining a variable at the top level as global results in it behaving the same as dynamic scoping.
+The lexical_scope branch also implements the global keyword. This allows for using a global variable inside a function. It works by using the global symbol table for any variable that has been declared as global in the current scope.
+{{{
+x = 0;
+f = function() {
+    global x;
+    x = 1;
+};
+f();
+println("x: " ~ x); // Prints x: 1
+}}}
 
+Defining a variable at the top level as global results in it behaving the same as dynamic scoping.
 {{{
 global x;
 x = 0;
@@ -49,6 +61,7 @@ g = function() {
     x = 1;
     return f();
 };
+g();
 println("x: " ~ x); // Prints x: 1
 }}}
 
